@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "615016893680",
+    "project_id": "gymout-c632f",
+    "storage_bucket": "gymout-c632f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:615016893680:android:6f7e802428be83f8244635",
+        "android_client_info": {
+          "package_name": "com.example.gymout"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "615016893680-me4qsvp64bf89keedahgdvfgmrqj892o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCduel4phmH1zlGM6BteQMJBKjNR9WpjZs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "615016893680-me4qsvp64bf89keedahgdvfgmrqj892o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
