@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Gym Out</string>
+    <string name="login_email_hint">Digite seu E-mail</string>
+    <string name="login_password_hint">Digite sua Senha</string>
+    <string name="login_entrar_button">Entrar</string>
+    <string name="login_cadastrar_button_professor">Cadastrar Professor</string>
+    <string name="login_cadastrar_button_aluno">Cadastrar Aluno</string>
+    <string name="login_recuperarSenha_button">Esqueci a senha</string>
+    <string name="cadastrar_professor_nome">Digite seu nome completo</string>
+    <string name="cadastrar_professor_titulo">Cadastro de Professor</string>
+    <string name="cadastrar_professor_email">Digite seu E-mail</string>
+    <string name="cadastrar_professor_senha">Digite sua Senha</string>
+    <string name="cadastrar_aluno_nome">Digite seu nome completo</string>
+    <string name="cadastrar_aluno_email">Digite seu E-mail</string>
+    <string name="cadastrar_aluno_senha">Digite sua senha</string>
+    <string name="cadastrar_aluno_titulo">Cadastro de Aluno</string>
+    <string name="cadastrar_aluno_button">Cadastrar Aluno</string>
+    <string name="cadastrar_professor_button">Cadastrar Professor</string>
+    <string name="recuperar_senha_email_hint">Digite seu E-mail</string>
+    <string name="recuperar_senha_voltar_button">Voltar</string>
+    <string name="recuperar_senha_button">RECUPERAR SENHA</string>
+</resources>
