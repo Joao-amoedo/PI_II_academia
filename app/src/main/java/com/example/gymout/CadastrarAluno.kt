@@ -8,6 +8,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.gymout.classes.Aluno
+import com.example.gymout.model.AlunoDAO
 import com.example.gymout.model.FirebaseFactory
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
@@ -71,7 +72,8 @@ class CadastrarAluno : AppCompatActivity() {
 
     fun salvaAlunoBanco(nome: String, email: String){
         var aluno = Aluno(nome=nome, email=email)
-        var ref = FirebaseFactory.getReference("aluno")
+        AlunoDAO.InsereAluno(aluno)
+
 
 
     }
