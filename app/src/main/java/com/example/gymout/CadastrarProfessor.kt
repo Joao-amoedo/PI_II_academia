@@ -7,12 +7,15 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.gymout.classes.Professor
+import com.example.gymout.model.ProfessorDAO
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 
 class CadastrarProfessor : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
 
+    private lateinit var nomeEt: EditText
     private lateinit var emailEt: EditText
     private lateinit var passwordEt: EditText
 
@@ -24,14 +27,16 @@ class CadastrarProfessor : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
 
-        emailEt = findViewById(R.id.cadastrar_professor_email)
-        passwordEt = findViewById(R.id.cadastrar_professor_senha)
+        nomeEt = findViewById(R.id.idNomeCadastrarProfessor)
+        emailEt = findViewById(R.id.idEmailCadastrarProfessor)
+        passwordEt = findViewById(R.id.idSenhaCadastrarProfessor)
 
         cadastrarProfessorBtn = findViewById(R.id.cadastrar_professor_button)
 
         cadastrarProfessorBtn.setOnClickListener {
             var email: String = emailEt.text.toString()
             var password: String = passwordEt.text.toString()
+            var nome:String = nomeEt.text.toString()
 
             if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
                 Toast.makeText(
@@ -43,6 +48,7 @@ class CadastrarProfessor : AppCompatActivity() {
                 auth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this, OnCompleteListener { task ->
                         if (task.isSuccessful) {
+                            salvaProfessorBanco(email, nome)
                             Toast.makeText(this, "Cadastrado com sucesso!", Toast.LENGTH_LONG)
                                 .show()
                             val intent = Intent(this, Login::class.java)
@@ -54,6 +60,17 @@ class CadastrarProfessor : AppCompatActivity() {
                     })
             }
         }
+
+
+
+
+    }
+
+    fun salvaProfessorBanco(nome:String, email:String){
+
+        var professor = Professor(nome=nome, email=email)
+        ProfessorDAO.InsereProfessor(professor)
+
 
     }
 }
