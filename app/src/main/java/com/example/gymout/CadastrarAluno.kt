@@ -7,6 +7,8 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.gymout.classes.Aluno
+import com.example.gymout.model.FirebaseFactory
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 
@@ -26,13 +28,16 @@ class CadastrarAluno : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
 
-        emailEt = findViewById(R.id.cadastrar_aluno_email)
-        passwordEt = findViewById(R.id.cadastrar_aluno_senha)
+        emailEt = findViewById(R.id.idEmailCadastrarAluno)
+        passwordEt = findViewById(R.id.idSenhaCadastrarAluno)
+        nomeEt = findViewById(R.id.idNomeCadastrarAluno)
+
         cadastrar_alunoBtn = findViewById(R.id.cadastrar_aluno_button)
 
         cadastrar_alunoBtn.setOnClickListener {
             var email: String = emailEt.text.toString()
             var password: String = passwordEt.text.toString()
+            var nome: String = nomeEt.text.toString()
 
             if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
                 Toast.makeText(
@@ -44,11 +49,18 @@ class CadastrarAluno : AppCompatActivity() {
                 auth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this, OnCompleteListener { task ->
                         if (task.isSuccessful) {
+                            salvaAlunoBanco(nome, email)
+
+
+
                             Toast.makeText(this, "Cadastrado com sucesso!", Toast.LENGTH_LONG)
                                 .show()
                             val intent = Intent(this, Login::class.java)
                             startActivity(intent)
                             finish()
+
+
+
                         } else {
                             Toast.makeText(this, "Falha no cadastro.", Toast.LENGTH_LONG).show()
                         }
@@ -56,4 +68,12 @@ class CadastrarAluno : AppCompatActivity() {
             }
         }
     }
+
+    fun salvaAlunoBanco(nome: String, email: String){
+        var aluno = Aluno(nome=nome, email=email)
+        var ref = FirebaseFactory.getReference("aluno")
+
+
+    }
+
 }
