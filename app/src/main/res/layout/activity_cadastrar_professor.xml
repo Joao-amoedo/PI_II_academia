@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:hint="@string/cadastrar_professor_nome"
+        android:textColorHint="@color/black"
         android:textSize="26sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -21,10 +22,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:hint="@string/cadastrar_professor_email"
-        android:gravity="center"
         android:ems="10"
+        android:gravity="center"
+        android:hint="@string/cadastrar_professor_email"
         android:inputType="textEmailAddress"
+        android:textColorHint="@color/black"
         app:layout_constraintTop_toBottomOf="@+id/idNomeCadastrarProfessor" />
 
     <EditText
@@ -32,10 +34,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:hint="@string/cadastrar_professor_senha"
-        android:gravity="center"
         android:ems="10"
+        android:gravity="center"
+        android:hint="@string/cadastrar_professor_senha"
         android:inputType="textPassword"
+        android:textColorHint="@color/black"
         app:layout_constraintTop_toBottomOf="@+id/idEmailCadastrarProfessor" />
 
     <TextView
@@ -45,7 +48,7 @@
         android:fontFamily="monospace"
         android:gravity="center"
         android:text="@string/cadastrar_professor_titulo"
-        android:textColor="#3F51B5"
+        android:textColor="@android:color/holo_blue_dark"
         android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/idNomeCadastrarProfessor"
@@ -56,9 +59,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="35dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginEnd="35dp"
         android:text="@string/cadastrar_professor_button"
-        app:layout_constraintTop_toBottomOf="@+id/idSenhaCadastrarProfessor"/>
+        android:textColor="@android:color/background_light"
+        app:backgroundTint="@android:color/holo_blue_dark"
+        app:layout_constraintTop_toBottomOf="@+id/idSenhaCadastrarProfessor"
+        tools:layout_editor_absoluteX="35dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

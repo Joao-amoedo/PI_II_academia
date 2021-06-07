@@ -24,7 +24,6 @@ class MainActivity : AppCompatActivity() {
             val alunoId = myRef.push().key
 
             myRef.child(alunoId.toString()).setValue(aluno)
-
         }
     }
 }

@@ -78,8 +78,5 @@ class Login : AppCompatActivity() {
             val intent = Intent(this, RecuperarSenha::class.java)
             startActivity(intent)
         }
-
-
-
     }
 }

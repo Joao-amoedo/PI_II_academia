@@ -60,17 +60,10 @@ class CadastrarProfessor : AppCompatActivity() {
                     })
             }
         }
-
-
-
-
     }
-
     fun salvaProfessorBanco(nome:String, email:String){
 
         var professor = Professor(nome=nome, email=email)
         ProfessorDAO.InsereProfessor(professor)
-
-
     }
 }

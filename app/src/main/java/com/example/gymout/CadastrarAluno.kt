@@ -51,17 +51,11 @@ class CadastrarAluno : AppCompatActivity() {
                     .addOnCompleteListener(this, OnCompleteListener { task ->
                         if (task.isSuccessful) {
                             salvaAlunoBanco(nome, email)
-
-
-
                             Toast.makeText(this, "Cadastrado com sucesso!", Toast.LENGTH_LONG)
                                 .show()
                             val intent = Intent(this, Login::class.java)
                             startActivity(intent)
                             finish()
-
-
-
                         } else {
                             Toast.makeText(this, "Falha no cadastro.", Toast.LENGTH_LONG).show()
                         }
@@ -73,9 +67,5 @@ class CadastrarAluno : AppCompatActivity() {
     fun salvaAlunoBanco(nome: String, email: String){
         var aluno = Aluno(nome=nome, email=email)
         AlunoDAO.InsereAluno(aluno)
-
-
-
     }
-
 }

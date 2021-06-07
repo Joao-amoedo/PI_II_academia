@@ -25,7 +25,9 @@
                 android:id="@+id/recuperar_senha_email_Et"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:hint="@string/recuperar_senha_email_hint"/>
+                android:background="@color/white"
+                android:hint="@string/recuperar_senha_email_hint"
+                android:textColorHint="@color/black" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -34,7 +36,8 @@
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:layout_marginTop="32dp"
-            android:text="@string/recuperar_senha_button"/>
+            android:text="@string/recuperar_senha_button"
+            app:backgroundTint="@android:color/holo_blue_dark" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -75,7 +78,8 @@
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:layout_marginTop="16dp"
-            android:text="@string/recuperar_senha_voltar_button" />
+            android:text="@string/recuperar_senha_voltar_button"
+            app:backgroundTint="@android:color/holo_blue_dark" />
 
     </LinearLayout>
 
