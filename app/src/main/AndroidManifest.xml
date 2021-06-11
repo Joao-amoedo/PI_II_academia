@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GymOut">
+        <activity android:name=".Chatbot"></activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".RecuperarSenha" />
         <activity android:name=".CadastrarAluno" />
