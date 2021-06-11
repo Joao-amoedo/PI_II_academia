@@ -1,12 +1,11 @@
-package com.example.gymout
+package com.example.gymout.activitys
 
 import android.os.Bundle
 import android.widget.Button
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.gymout.R
 import com.example.gymout.classes.Aluno
 import com.example.gymout.model.FirebaseFactory
-import com.google.firebase.database.FirebaseDatabase
 
 
 class MainActivity : AppCompatActivity() {

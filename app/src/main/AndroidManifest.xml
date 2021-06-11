@@ -9,11 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GymOut">
-        <activity android:name=".MainActivity" />
-        <activity android:name=".RecuperarSenha" />
-        <activity android:name=".CadastrarAluno" />
-        <activity android:name=".CadastrarProfessor" />
-        <activity android:name=".Login">
+        <activity android:name=".activitys.MainActivity" />
+        <activity android:name=".activitys.ActivityRecuperarSenha" />
+        <activity android:name=".activitys.ActivityCadastrarAluno" />
+        <activity android:name=".activitys.ActivityCadastrarProfessor" />
+        <activity android:name=".activitys.ActivityLogin">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
