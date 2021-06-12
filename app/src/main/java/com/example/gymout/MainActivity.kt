@@ -1,5 +1,6 @@
 package com.example.gymout
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
@@ -26,5 +27,17 @@ class MainActivity : AppCompatActivity() {
             myRef.child(alunoId.toString()).setValue(aluno)
 
         }
+
+        val btn1 = findViewById<Button>(R.id.idChat)
+
+        btn1.setOnClickListener { val intent = Intent( this, Chatbot::class.java)
+        startActivity(intent)
+
+        }
+
+
+
     }
 }
+
+

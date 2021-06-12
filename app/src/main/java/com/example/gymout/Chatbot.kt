@@ -40,7 +40,9 @@ class Chatbot : AppCompatActivity() {
         mensagens = ArrayList()
 
         val adapter = MensagemAdapter(1, this.mensagens as ArrayList<Mensagem>, this)
-        listaDeMensagens.setAdapter(adapter as ListAdapter)
+        listaDeMensagens?.run {
+            setAdapter(adapter as ListAdapter)
+        }
 
         val retrofit = Retrofit.Builder()
                 .baseUrl("https://dialogflow-gymout.herokuapp.com//api/")
@@ -51,14 +53,14 @@ class Chatbot : AppCompatActivity() {
         button = findViewById(R.id.btn_enviar)
         editText = findViewById(R.id.et_texto)
 
-        button.setOnClickListener(View.OnClickListener { //coloquei a my_message uma variavel antes de enviar invez de criar a my_message direto sem atribuir direto
-            val textoCompo = editText.getText().toString()
+        button!!.setOnClickListener(View.OnClickListener { //coloquei a my_message uma variavel antes de enviar invez de criar a my_message direto sem atribuir direto
+            val textoCompo = editText!!.text.toString()
             if (!textoCompo.isEmpty()) {
                 val mensagem = Mensagem(textoCompo, VIEW_MY_MESSAGE)
-                val call: Call<RespostaServidor> = chatService!!.enviar(mensagem)
-                call.enqueue(EnviarMensagemCallback(this@Chatbot))
+                val call: Call<RespostaServidor?>? = chatService!!.enviar(mensagem)
+                call?.enqueue(EnviarMensagemCallback(this@Chatbot))
                 colocaNaLista(mensagem)
-                editText.setText(null)
+                editText!!.setText(null)
             } else {
                 Toast.makeText(this@Chatbot, "Digite a mensagem", Toast.LENGTH_SHORT).show()
             }
@@ -66,8 +68,8 @@ class Chatbot : AppCompatActivity() {
     }
 
     fun colocaNaLista(mensagem: Mensagem) {
-        mensagens.add(mensagem)
-        val adapter = MensagemAdapter(idClient, mensagens, this)
+        mensagens!!.add(mensagem)
+        val adapter = mensagens?.let { MensagemAdapter(idClient, it, this) }
         listaDeMensagens!!.adapter = adapter
     }
 }

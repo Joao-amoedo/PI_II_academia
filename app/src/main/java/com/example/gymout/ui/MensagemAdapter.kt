@@ -1,11 +1,14 @@
 package com.example.gymout.ui
-import android.R
+
+
+import com.example.gymout.R
 import android.app.Activity
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
 import com.example.gymout.model.Mensagem
+
 
 class MensagemAdapter(
     private val idDoCliente: Int,
@@ -29,13 +32,18 @@ class MensagemAdapter(
 
     override fun getView(i: Int, view: View, viewGroup: ViewGroup): View {
         val mensagem = getItem(i)
-        linha = activity.layoutInflater.inflate(R.layout.my_message, viewGroup, false)
+        linha = activity.layoutInflater.inflate(
+            R.layout.my_message,
+            viewGroup,
+            false
+        )
         texto = linha!!.findViewById(R.id.bot_message)
         if (idDoCliente != mensagem.vIEW_TYPE) {
             linha = activity.layoutInflater.inflate(R.layout.bot_message, viewGroup, false)
             texto = linha!!.findViewById(R.id.bot_message)
         }
-        texto.setText(mensagem.texto)
+        texto!!.text = mensagem.texto
         return linha!!
     }
 }
+
