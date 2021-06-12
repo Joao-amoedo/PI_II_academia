@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.gymout">
+    package="com.example.gymout" >
 
     <application
         android:allowBackup="true"
@@ -8,12 +8,14 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.GymOut">
+        android:theme="@style/Theme.GymOut" >
+        <activity android:name=".activitys.ActivityTelaPrincipalAluno" >
+        </activity>
         <activity android:name=".activitys.MainActivity" />
         <activity android:name=".activitys.ActivityRecuperarSenha" />
         <activity android:name=".activitys.ActivityCadastrarAluno" />
         <activity android:name=".activitys.ActivityCadastrarProfessor" />
-        <activity android:name=".activitys.ActivityLogin">
+        <activity android:name=".activitys.ActivityLogin" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
