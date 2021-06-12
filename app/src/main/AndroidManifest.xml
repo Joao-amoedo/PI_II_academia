@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GymOut">
+        <activity android:name=".activitys.ActivityPerfilProfessor"></activity>
         <activity android:name=".activitys.MainActivity" />
         <activity android:name=".activitys.ActivityRecuperarSenha" />
         <activity android:name=".activitys.ActivityCadastrarAluno" />
