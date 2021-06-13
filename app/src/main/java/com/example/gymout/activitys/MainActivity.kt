@@ -1,5 +1,6 @@
 package com.example.gymout.activitys
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
@@ -15,6 +16,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val btn = findViewById<Button>(R.id.idButtonMainActivity)
+        val btn2 = findViewById<Button>(R.id.perfilProfessor)
+
 
         btn.setOnClickListener {
 
@@ -24,6 +27,12 @@ class MainActivity : AppCompatActivity() {
 
             myRef.child(alunoId.toString()).setValue(aluno)
 
+        }
+
+        btn2.setOnClickListener {
+            val intent = Intent(this, ActivityPerfilProfessor::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 }

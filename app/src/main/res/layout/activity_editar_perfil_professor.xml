@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activitys.ActivityPerfilProfessor">
+    tools:context=".activitys.ActivityEditarPerfilProfessor">
 
 
     <ImageView
-        android:id="@+id/idImageViewPaginaCriadorActivityImagem"
+        android:id="@+id/idImageViewProfessorEdit"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_gravity="center"
@@ -16,8 +19,8 @@
         android:layout_weight="0"
         tools:srcCompat="@tools:sample/avatars" />
 
-    <TextView
-        android:id="@+id/idTextViewPaginaUsuarioActivityNome"
+    <EditText
+        android:id="@+id/idTextViewProfessorEditNome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -26,8 +29,8 @@
         android:textSize="24dp"
         android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/idTextViewPaginaUsuarioActivityEndereco"
+    <EditText
+        android:id="@+id/idTextViewProfessorEditEndereco"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
@@ -42,8 +45,8 @@
         android:layout_marginTop="10dp"
         android:background="#2F9314" />
 
-    <TextView
-        android:id="@+id/idTextViewPaginaUsuarioActivityBio"
+    <EditText
+        android:id="@+id/idTextViewProfessorEditActivityBio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
@@ -75,7 +78,7 @@
                 android:text="Email: " />
 
             <TextView
-                android:id="@+id/idTextViewPaginaUsuarioActivityEmail"
+                android:id="@+id/idTextViewProfessorEditEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
@@ -104,8 +107,8 @@
 
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/idTextViewPaginaUsuarioActivityQuantidadeProjetosCriados"
+            <EditText
+                android:id="@+id/idTextViewProfessorEditQuantidadeAlunosAssociados"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0" />
@@ -131,7 +134,8 @@
 
                 android:textStyle="bold" />
 
-            <TextView
+            <EditText
+                android:id="@+id/IdTextViewProfessorEditCREF"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="xxx" />
@@ -157,7 +161,9 @@
 
                 android:textStyle="bold" />
 
-            <TextView
+
+            <EditText
+                android:id="@+id/IdTextViewProfessorEditSexo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Masculino" />
@@ -183,8 +189,8 @@
                 android:text="Data de Nascimento: "
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/idTextViewPaginaUsuarioActivityQuantidadeContribuicoes"
+            <EditText
+                android:id="@+id/idTextViewProfessorEditDataDeNascimento"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="DD/MM/AAAA" />
@@ -194,5 +200,23 @@
 
 
     </LinearLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0">
+        <Button
+            android:id="@+id/EditarProfessorPerfilBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:text="Aplicar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="-4dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>

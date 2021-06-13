@@ -29,6 +29,7 @@ class ActivityLogin : AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
 
+
         login_emailEt = findViewById(R.id.login_email)
         login_passwordEt = findViewById(R.id.login_password)
         login_cadastrarAlunoBtn = findViewById(R.id.login_button_cadastrar_aluno)
@@ -54,6 +55,17 @@ class ActivityLogin : AppCompatActivity() {
                         if (task.isSuccessful) {
                             Toast.makeText(this, "Logado com sucesso!", Toast.LENGTH_LONG).show()
                             val intent = Intent(this, MainActivity::class.java)
+
+                            //pegar dados
+                            /*
+                            val database = FirebaseFactory.getDatabase()
+                            val currentUser = FirebaseAuth.getInstance().currentUser.uid
+                            val database = FirebaseFactory.getDatabase()
+                            database.getReference("professor").child(currentUser).get().addOnSuccessListener {
+                                val x = it.value
+
+                            }*/
+
                             startActivity(intent)
                             finish()
                         } else {
@@ -62,6 +74,12 @@ class ActivityLogin : AppCompatActivity() {
                     })
             }
         }
+
+
+
+
+
+
 
         login_cadastrarAlunoBtn.setOnClickListener {
             val intent = Intent(this, ActivityCadastrarAluno::class.java)
