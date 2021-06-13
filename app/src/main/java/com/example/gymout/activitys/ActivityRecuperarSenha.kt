@@ -1,4 +1,4 @@
-package com.example.gymout
+package com.example.gymout.activitys
 
 import android.os.Bundle
 import android.text.TextUtils
@@ -6,10 +6,11 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.gymout.R
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 
-class RecuperarSenha : AppCompatActivity() {
+class ActivityRecuperarSenha : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
 

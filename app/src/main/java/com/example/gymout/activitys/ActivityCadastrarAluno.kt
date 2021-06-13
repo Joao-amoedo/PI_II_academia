@@ -1,4 +1,4 @@
-package com.example.gymout
+package com.example.gymout.activitys
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,13 +7,13 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.gymout.R
 import com.example.gymout.classes.Aluno
 import com.example.gymout.model.AlunoDAO
-import com.example.gymout.model.FirebaseFactory
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 
-class CadastrarAluno : AppCompatActivity() {
+class ActivityCadastrarAluno : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
 
@@ -50,13 +50,15 @@ class CadastrarAluno : AppCompatActivity() {
                 auth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this, OnCompleteListener { task ->
                         if (task.isSuccessful) {
-                            salvaAlunoBanco(nome, email)
+
+                            var uid = auth.currentUser.uid
+                            salvaAlunoBanco(uid, nome, email)
 
 
 
                             Toast.makeText(this, "Cadastrado com sucesso!", Toast.LENGTH_LONG)
                                 .show()
-                            val intent = Intent(this, Login::class.java)
+                            val intent = Intent(this, ActivityLogin::class.java)
                             startActivity(intent)
                             finish()
 
@@ -70,8 +72,8 @@ class CadastrarAluno : AppCompatActivity() {
         }
     }
 
-    fun salvaAlunoBanco(nome: String, email: String){
-        var aluno = Aluno(nome=nome, email=email)
+    fun salvaAlunoBanco(uid:String, nome: String, email: String){
+        var aluno = Aluno(uid=uid, nome=nome, email=email)
         AlunoDAO.InsereAluno(aluno)
 
 

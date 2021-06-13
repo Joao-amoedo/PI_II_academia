@@ -1,4 +1,4 @@
-package com.example.gymout
+package com.example.gymout.activitys
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,10 +7,11 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.gymout.R
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 
-class Login : AppCompatActivity() {
+class ActivityLogin : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
 
     private lateinit var login_emailEt: EditText
@@ -43,7 +44,7 @@ class Login : AppCompatActivity() {
 
             if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
                 Toast.makeText(
-                    this@Login,
+                    this@ActivityLogin,
                     "Por favor, preencha todos os campos.",
                     Toast.LENGTH_LONG
                 ).show()
@@ -63,19 +64,19 @@ class Login : AppCompatActivity() {
         }
 
         login_cadastrarAlunoBtn.setOnClickListener {
-            val intent = Intent(this, CadastrarAluno::class.java)
+            val intent = Intent(this, ActivityCadastrarAluno::class.java)
             startActivity(intent)
             finish()
         }
 
         login_cadastrarProfessorBtn.setOnClickListener {
-            val intent = Intent(this, CadastrarProfessor::class.java)
+            val intent = Intent(this, ActivityCadastrarProfessor::class.java)
             startActivity(intent)
             finish()
         }
 
         recuperarSenhaBtn.setOnClickListener {
-            val intent = Intent(this, RecuperarSenha::class.java)
+            val intent = Intent(this, ActivityRecuperarSenha::class.java)
             startActivity(intent)
         }
 

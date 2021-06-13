@@ -1,4 +1,4 @@
-package com.example.gymout
+package com.example.gymout.activitys
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,12 +7,13 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.gymout.R
 import com.example.gymout.classes.Professor
 import com.example.gymout.model.ProfessorDAO
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 
-class CadastrarProfessor : AppCompatActivity() {
+class ActivityCadastrarProfessor : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
 
     private lateinit var nomeEt: EditText
@@ -48,10 +49,15 @@ class CadastrarProfessor : AppCompatActivity() {
                 auth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this, OnCompleteListener { task ->
                         if (task.isSuccessful) {
-                            salvaProfessorBanco(email, nome)
+
+                            val uid = auth.currentUser.uid
+
+
+
+                            salvaProfessorBanco(uid, email, nome)
                             Toast.makeText(this, "Cadastrado com sucesso!", Toast.LENGTH_LONG)
                                 .show()
-                            val intent = Intent(this, Login::class.java)
+                            val intent = Intent(this, ActivityLogin::class.java)
                             startActivity(intent)
                             finish()
                         } else {
@@ -66,9 +72,9 @@ class CadastrarProfessor : AppCompatActivity() {
 
     }
 
-    fun salvaProfessorBanco(nome:String, email:String){
+    fun salvaProfessorBanco(uid:String, nome:String, email:String){
 
-        var professor = Professor(nome=nome, email=email)
+        var professor = Professor(uid=uid, nome=nome, email=email)
         ProfessorDAO.InsereProfessor(professor)
 
 
