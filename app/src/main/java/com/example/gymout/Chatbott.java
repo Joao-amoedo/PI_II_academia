@@ -1,4 +1,4 @@
- package com.example.gymout;
+ //package com.example.gymout;
 
  import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;

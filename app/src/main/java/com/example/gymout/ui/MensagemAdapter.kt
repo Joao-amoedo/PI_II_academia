@@ -1,6 +1,5 @@
 package com.example.gymout.ui
 
-
 import com.example.gymout.R
 import android.app.Activity
 import android.view.View
@@ -30,7 +29,7 @@ class MensagemAdapter(
         return i.toLong()
     }
 
-    override fun getView(i: Int, view: View, viewGroup: ViewGroup): View {
+    override fun getView(i: Int, view: View?, viewGroup: ViewGroup): View {
         val mensagem = getItem(i)
         linha = activity.layoutInflater.inflate(
             R.layout.my_message,

@@ -45,7 +45,7 @@ class Chatbot : AppCompatActivity() {
         }
 
         val retrofit = Retrofit.Builder()
-                .baseUrl("https://dialogflow-gymout.herokuapp.com//api/")
+                .baseUrl("http://dialogflow-gymout.herokuapp.com/api/")
                 .addConverterFactory(GsonConverterFactory.create(Gson()))
                 .build()
 
@@ -53,18 +53,19 @@ class Chatbot : AppCompatActivity() {
         button = findViewById(R.id.btn_enviar)
         editText = findViewById(R.id.et_texto)
 
-        button!!.setOnClickListener(View.OnClickListener { //coloquei a my_message uma variavel antes de enviar invez de criar a my_message direto sem atribuir direto
+        button!!.setOnClickListener { //coloquei a my_message uma variavel antes de enviar invez de criar a my_message direto sem atribuir direto
             val textoCompo = editText!!.text.toString()
-            if (!textoCompo.isEmpty()) {
+            if (textoCompo.isNotEmpty()) {
+                val email
                 val mensagem = Mensagem(textoCompo, VIEW_MY_MESSAGE)
                 val call: Call<RespostaServidor?>? = chatService!!.enviar(mensagem)
                 call?.enqueue(EnviarMensagemCallback(this@Chatbot))
-                colocaNaLista(mensagem)
-                editText!!.setText(null)
+                colocaNaLista(mensagem, email, sessionId)
+                editText!!.text = null
             } else {
                 Toast.makeText(this@Chatbot, "Digite a mensagem", Toast.LENGTH_SHORT).show()
             }
-        })
+        }
     }
 
     fun colocaNaLista(mensagem: Mensagem) {

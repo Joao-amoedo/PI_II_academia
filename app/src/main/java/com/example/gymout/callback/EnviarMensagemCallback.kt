@@ -13,21 +13,20 @@ class EnviarMensagemCallback(activity: Chatbot) :
     Callback<RespostaServidor?> {
     private val VIEW_MY_MESSAGE = 1
     private val VIEW_BOT_MESSAGE = 2
-    var activity: Chatbot
+    var activity: Chatbot = activity
+
     override fun onResponse(call: Call<RespostaServidor?>, response: Response<RespostaServidor?>) {
         if (response.isSuccessful) {
 //            Toast.makeText(activity.getApplicationContext(),"SUCESSO", Toast.LENGTH_SHORT).show();
             val respostaServidor = response.body()
             activity.colocaNaLista(Mensagem(respostaServidor!!.texto!!, VIEW_BOT_MESSAGE))
         } else {
-            Toast.makeText(activity.getApplicationContext(), "Resposta ERRO", Toast.LENGTH_SHORT)
+            Toast.makeText(activity.applicationContext, "Resposta ERRO", Toast.LENGTH_SHORT)
                 .show()
         }
     }
 
     override fun onFailure(call: Call<RespostaServidor?>, t: Throwable) {}
 
-    init {
-        this.activity = activity
-    }
+
 }
