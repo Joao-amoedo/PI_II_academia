@@ -1,6 +1,8 @@
 package com.example.gymout.classes
 
 class Professor(
+
+        uid: String,
         nome: String,
         email: String,
         sexo: String? = null,
@@ -10,4 +12,4 @@ class Professor(
         dataNascimento:Int? = null,
         var certificadoEducacao:String? = null,
         var CEP:String? = null
-) : Usuario(nome, email, sexo, peso, altura, nota, dataNascimento)
+) : Usuario(uid, nome, email, sexo, peso, altura, nota, dataNascimento)

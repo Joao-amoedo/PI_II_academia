@@ -16,14 +16,6 @@ class MainActivity : AppCompatActivity() {
 
         val btn = findViewById<Button>(R.id.idButtonMainActivity)
 
-        btn.setOnClickListener {
 
-            var aluno = Aluno(nome = "João", email = "jp.advc@gmail.com")
-            var myRef = FirebaseFactory.getReference("aluno")
-            val alunoId = myRef.push().key
-
-            myRef.child(alunoId.toString()).setValue(aluno)
-
-        }
     }
 }
