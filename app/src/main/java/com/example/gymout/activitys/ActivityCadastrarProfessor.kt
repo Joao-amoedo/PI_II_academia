@@ -54,7 +54,7 @@ class ActivityCadastrarProfessor : AppCompatActivity() {
 
 
 
-                            salvaProfessorBanco(uid, email, nome)
+                            salvaProfessorBanco(uid, nome, email)
                             Toast.makeText(this, "Cadastrado com sucesso!", Toast.LENGTH_LONG)
                                 .show()
                             val intent = Intent(this, ActivityLogin::class.java)
