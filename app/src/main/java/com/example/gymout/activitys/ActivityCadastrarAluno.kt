@@ -50,7 +50,9 @@ class ActivityCadastrarAluno : AppCompatActivity() {
                 auth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this, OnCompleteListener { task ->
                         if (task.isSuccessful) {
-                            salvaAlunoBanco(nome, email)
+
+                            var uid = auth.currentUser.uid
+                            salvaAlunoBanco(uid, nome, email)
 
 
 
@@ -70,8 +72,8 @@ class ActivityCadastrarAluno : AppCompatActivity() {
         }
     }
 
-    fun salvaAlunoBanco(nome: String, email: String){
-        var aluno = Aluno(nome=nome, email=email)
+    fun salvaAlunoBanco(uid:String, nome: String, email: String){
+        var aluno = Aluno(uid=uid, nome=nome, email=email)
         AlunoDAO.InsereAluno(aluno)
 
 

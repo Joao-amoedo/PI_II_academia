@@ -35,9 +35,9 @@ class ActivityCadastrarProfessor : AppCompatActivity() {
         cadastrarProfessorBtn = findViewById(R.id.cadastrar_professor_button)
 
         cadastrarProfessorBtn.setOnClickListener {
-            val email: String = emailEt.text.toString()
-            val password: String = passwordEt.text.toString()
-            val nome:String = nomeEt.text.toString()
+            var email: String = emailEt.text.toString()
+            var password: String = passwordEt.text.toString()
+            var nome:String = nomeEt.text.toString()
 
             if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
                 Toast.makeText(
@@ -49,7 +49,12 @@ class ActivityCadastrarProfessor : AppCompatActivity() {
                 auth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this, OnCompleteListener { task ->
                         if (task.isSuccessful) {
-                            salvaProfessorBanco(nome, email)
+
+                            val uid = auth.currentUser.uid
+
+
+
+                            salvaProfessorBanco(uid, email, nome)
                             Toast.makeText(this, "Cadastrado com sucesso!", Toast.LENGTH_LONG)
                                 .show()
                             val intent = Intent(this, ActivityLogin::class.java)
@@ -67,9 +72,9 @@ class ActivityCadastrarProfessor : AppCompatActivity() {
 
     }
 
-    private fun salvaProfessorBanco(nome:String, email:String){
+    fun salvaProfessorBanco(uid:String, nome:String, email:String){
 
-        val professor = Professor(nome=nome, email=email)
+        var professor = Professor(uid=uid, nome=nome, email=email)
         ProfessorDAO.InsereProfessor(professor)
 
 
