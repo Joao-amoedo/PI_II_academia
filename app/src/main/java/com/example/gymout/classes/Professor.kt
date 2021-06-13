@@ -6,7 +6,9 @@ class Professor(
         nome: String,
         email: String,
         nota: MutableList<Int>? = null,
-        dataNascimento:Int? = null,
+        idade:Int? = null,
+        var endereco:String? = null,
         var certificadoEducacao:String? = null,
-        var CEP:String? = null
-) : Usuario(uid, nome, email,  nota, dataNascimento, true)
+        var CEP:String? = null,
+        var bio:String? = null
+) : Usuario(uid, nome, email,  nota, idade, true)

@@ -52,8 +52,6 @@ class ActivityCadastrarProfessor : AppCompatActivity() {
 
                             val uid = auth.currentUser.uid
 
-
-
                             salvaProfessorBanco(uid, nome, email)
                             Toast.makeText(this, "Cadastrado com sucesso!", Toast.LENGTH_LONG)
                                 .show()

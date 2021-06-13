@@ -1,5 +1,6 @@
 package com.example.gymout.activitys
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
@@ -19,6 +20,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val btn = findViewById<Button>(R.id.idButtonMainActivity)
+        val btn2 = findViewById<Button>(R.id.perfilProfessor)
+
+        btn2.setOnClickListener {
+            val intent = Intent(this, ActivityEditarPerfilProfessor::class.java)
+            startActivity(intent)
+            finish()
+        }
 
         btn.setOnClickListener {
 

@@ -6,9 +6,7 @@ open class Usuario(
     var nome: String,
     var email: String,
     var nota: MutableList<Int>? = null,
-    var dataNascimento: Int? = null,
+    var idade: Int? = null,
     var isProfessor: Boolean
-
-
 
 )
