@@ -1,11 +1,10 @@
 package com.example.gymout.classes
 
 class Aluno(
+        uid: String,
         nome: String,
         email: String,
-        sexo: String? = null,
-        peso: String? = null,
         altura: String?= null,
         nota: MutableList<Int>? = null,
         dataNascimento:Int? = null
-) : Usuario(nome, email, sexo, peso, altura, nota, dataNascimento)
+) : Usuario(uid, nome, email, nota, dataNascimento, false)

@@ -49,7 +49,12 @@ class ActivityCadastrarProfessor : AppCompatActivity() {
                 auth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this, OnCompleteListener { task ->
                         if (task.isSuccessful) {
-                            salvaProfessorBanco(email, nome)
+
+                            val uid = auth.currentUser.uid
+
+
+
+                            salvaProfessorBanco(uid, nome, email)
                             Toast.makeText(this, "Cadastrado com sucesso!", Toast.LENGTH_LONG)
                                 .show()
                             val intent = Intent(this, ActivityLogin::class.java)
@@ -67,9 +72,9 @@ class ActivityCadastrarProfessor : AppCompatActivity() {
 
     }
 
-    fun salvaProfessorBanco(nome:String, email:String){
+    fun salvaProfessorBanco(uid:String, nome:String, email:String){
 
-        var professor = Professor(nome=nome, email=email)
+        var professor = Professor(uid=uid, nome=nome, email=email)
         ProfessorDAO.InsereProfessor(professor)
 
 

@@ -2,10 +2,14 @@ package com.example.gymout.activitys
 
 import android.os.Bundle
 import android.widget.Button
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.gymout.R
 import com.example.gymout.classes.Aluno
+import com.example.gymout.classes.Usuario
+import com.example.gymout.model.AlunoDAO
 import com.example.gymout.model.FirebaseFactory
+import com.example.gymout.model.UsuarioEstatico
 
 
 class MainActivity : AppCompatActivity() {
@@ -18,12 +22,11 @@ class MainActivity : AppCompatActivity() {
 
         btn.setOnClickListener {
 
-            var aluno = Aluno(nome = "João", email = "jp.advc@gmail.com")
-            var myRef = FirebaseFactory.getReference("aluno")
-            val alunoId = myRef.push().key
+            val usuario = UsuarioEstatico.getUsuario();
 
-            myRef.child(alunoId.toString()).setValue(aluno)
 
+            Toast.makeText(this, usuario.nome, Toast.LENGTH_LONG).show()
         }
+
     }
 }

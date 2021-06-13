@@ -1,5 +1,6 @@
 package com.example.gymout.activitys
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
@@ -8,8 +9,13 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.gymout.R
+import com.example.gymout.classes.Aluno
+import com.example.gymout.classes.Professor
+import com.example.gymout.model.FirebaseFactory
+import com.example.gymout.model.UsuarioEstatico
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
 
 class ActivityLogin : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
@@ -24,6 +30,7 @@ class ActivityLogin : AppCompatActivity() {
 
     private lateinit var recuperarSenhaBtn: Button
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -35,6 +42,7 @@ class ActivityLogin : AppCompatActivity() {
         login_cadastrarProfessorBtn = findViewById(R.id.login_button_cadastrar_professor)
         loginBtn = findViewById(R.id.login_button_entrar)
         recuperarSenhaBtn = findViewById(R.id.login_button_recuperarSenha)
+
 
         auth = FirebaseAuth.getInstance()
 
@@ -54,8 +62,21 @@ class ActivityLogin : AppCompatActivity() {
                         if (task.isSuccessful) {
                             Toast.makeText(this, "Logado com sucesso!", Toast.LENGTH_LONG).show()
                             val intent = Intent(this, MainActivity::class.java)
-                            startActivity(intent)
-                            finish()
+
+
+                            val uid = auth.currentUser.uid
+
+                            FirebaseFactory.getReference("usuario").child(uid).get().addOnSuccessListener {
+
+                                criarUsuarioEstatico(it)
+                                startActivity(intent)
+                                finish()
+
+                            }
+
+
+
+
                         } else {
                             Toast.makeText(this, "Falha no Login", Toast.LENGTH_LONG).show()
                         }
@@ -83,4 +104,21 @@ class ActivityLogin : AppCompatActivity() {
 
 
     }
+
+    private fun criarUsuarioEstatico(it: DataSnapshot){
+        val value = it.value as HashMap<*, *>
+        val nome = value["nome"] as String
+        val email = value["email"] as String
+        val uid = value["uid"] as String
+        val isProfessor = value["professor"] as Boolean
+
+        if (isProfessor) {
+            var professor = Professor(nome = nome, email = email, uid = uid)
+            UsuarioEstatico.professor = professor
+        } else {
+            var aluno = Aluno(nome = nome, email = email, uid = uid)
+            UsuarioEstatico.aluno = aluno
+        }
+    }
 }
+

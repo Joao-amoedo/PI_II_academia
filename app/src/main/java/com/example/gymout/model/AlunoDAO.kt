@@ -10,9 +10,8 @@ class AlunoDAO {
 
     companion object {
         fun InsereAluno(aluno: Aluno){
-            var ref = FirebaseFactory.getReference("aluno")
-            val alunoId = ref.push().key
-            ref.child(alunoId.toString()).setValue(aluno)
+            var ref = FirebaseFactory.getReference("usuario")
+            ref.child(aluno.uid).setValue(aluno)
 
 
         }
