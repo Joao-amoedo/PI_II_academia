@@ -46,7 +46,7 @@ class ActivityEditarPerfilProfessor : AppCompatActivity() {
         dbReference = FirebaseDatabase.getInstance().reference.child("professor")
 
         aplicarEditProfessor.setOnClickListener {
-            val professor = Professor(nomeProfessorEdit,emailProfessor,sexo,)
+            //val professor = Professor(nomeProfessorEdit,emailProfessor,sexo,)
 
             dbReference.child("professor").child(currentUser).child("name").setValue(nomeProfessorEdit)
             //dbReference.child("professor").child(currentUser).child("endereco").setValue(enderecoProfessorEdit)
