@@ -4,7 +4,7 @@ class Aluno(
         uid: String,
         nome: String,
         email: String,
-        sexo: String? = null,
+        altura: String?= null,
         nota: MutableList<Int>? = null,
         dataNascimento:Int? = null
-) : Usuario(uid, nome, email, sexo, nota, dataNascimento)
+) : Usuario(uid, nome, email, nota, dataNascimento, false)
