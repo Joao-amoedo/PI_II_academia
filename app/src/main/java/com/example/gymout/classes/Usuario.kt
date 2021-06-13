@@ -9,7 +9,8 @@ open class Usuario(
     var peso: String? = null,
     var altura: String?= null,
     var nota: MutableList<Int>? = null,
-    var dataNascimento: Int? = null
+    var dataNascimento: Int? = null,
+    var isProfessor: Boolean
 
 
 

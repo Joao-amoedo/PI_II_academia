@@ -12,4 +12,4 @@ class Professor(
         dataNascimento:Int? = null,
         var certificadoEducacao:String? = null,
         var CEP:String? = null
-) : Usuario(uid, nome, email, sexo, peso, altura, nota, dataNascimento)
+) : Usuario(uid, nome, email, sexo, peso, altura, nota, dataNascimento, true)

@@ -9,4 +9,4 @@ class Aluno(
         altura: String?= null,
         nota: MutableList<Int>? = null,
         dataNascimento:Int? = null
-) : Usuario(uid, nome, email, sexo, peso, altura, nota, dataNascimento)
+) : Usuario(uid, nome, email, sexo, peso, altura, nota, dataNascimento, false)

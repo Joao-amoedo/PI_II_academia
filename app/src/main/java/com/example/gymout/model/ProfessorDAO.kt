@@ -11,7 +11,7 @@ class ProfessorDAO {
 
     companion object {
         fun InsereProfessor(professor: Professor){
-            var ref = FirebaseFactory.getReference("professor")
+            var ref = FirebaseFactory.getReference("usuario")
             ref.child(professor.uid).setValue(professor)
         }
     }

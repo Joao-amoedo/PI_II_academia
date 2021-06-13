@@ -1,5 +1,6 @@
 package com.example.gymout.activitys
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
@@ -8,6 +9,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.gymout.R
+import com.example.gymout.model.FirebaseFactory
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 
@@ -24,6 +26,7 @@ class ActivityLogin : AppCompatActivity() {
 
     private lateinit var recuperarSenhaBtn: Button
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -35,6 +38,7 @@ class ActivityLogin : AppCompatActivity() {
         login_cadastrarProfessorBtn = findViewById(R.id.login_button_cadastrar_professor)
         loginBtn = findViewById(R.id.login_button_entrar)
         recuperarSenhaBtn = findViewById(R.id.login_button_recuperarSenha)
+
 
         auth = FirebaseAuth.getInstance()
 
@@ -54,6 +58,13 @@ class ActivityLogin : AppCompatActivity() {
                         if (task.isSuccessful) {
                             Toast.makeText(this, "Logado com sucesso!", Toast.LENGTH_LONG).show()
                             val intent = Intent(this, MainActivity::class.java)
+
+
+                            val uid = auth.currentUser.uid
+
+
+
+
                             startActivity(intent)
                             finish()
                         } else {
