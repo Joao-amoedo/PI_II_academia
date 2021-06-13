@@ -5,7 +5,6 @@ open class Usuario(
     var uid:String,
     var nome: String,
     var email: String,
-    var altura: String?= null,
     var nota: MutableList<Int>? = null,
     var dataNascimento: Int? = null,
     var isProfessor: Boolean
